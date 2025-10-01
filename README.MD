@@ -17,7 +17,7 @@ If you are interested my currently used personal configuration and setup, you ca
 - [X] neotree
 - [X] snacks.indent
 - [X] telescope + fzf native
-- [X] shade
+- [X] vimade
 - [X] treesitter.nvim
 - [X] conform.nvim
 - [X] blink-cmp

@@ -10,6 +10,16 @@ local map = vim.keymap.set
 -- 	end
 -- end
 
+
+--toggle neotree
+function toggle_neotree()
+	if vim.bo.filetype == 'neo-tree' then
+		vim.cmd.wincmd 'p'
+	else
+		vim.cmd("Neotree focus")
+	end
+end
+
 --custom :q function to check buffers then quit
 vim.api.nvim_create_user_command("Q", function()
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -62,9 +72,9 @@ map("n", "<leader>c","<cmd>bd<CR>" , { desc = "buffer close" })
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
--- nvimtree
+-- neotree
 map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "neotree toggle window" })
-map("n", "<leader>o", "<cmd>Neotree focus<CR>", { desc = "neotree focus window" })
+map("n", "<leader>o", toggle_neotree, { desc = "neotree focus window" })
 
 -- telescope
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
