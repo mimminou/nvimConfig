@@ -14,14 +14,15 @@ If you are interested my currently used personal configuration and setup, you ca
 - [X] lualine.statusline
 - [X] bufferline
 - [X] which-key
-- [X] nvim tree
+- [X] neotree
 - [X] snacks.indent
 - [X] telescope + fzf native
+- [X] shade
+- [X] treesitter.nvim
+- [X] conform.nvim
+- [X] blink-cmp
 - [ ] Basic options 
 - [ ] vim-sleuth
 - [ ] editorconf
-- [ ] treesitter.nvim
 - [ ] nvim-lspconfig 
-- [ ] conform.nvim
-- [ ] blink-cmp
 

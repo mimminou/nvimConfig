@@ -2,13 +2,13 @@ local map = vim.keymap.set
 
 -- function definitions
 --toggle nvim tree
-function toggle_nvimtree()
-	if vim.fn.bufname():match 'NvimTree_' then
-		vim.cmd.wincmd 'p'
-	else
-		vim.cmd('NvimTreeFindFile')
-	end
-end
+-- function toggle_nvimtree()
+-- 	if vim.fn.bufname():match 'NvimTree_' then
+-- 		vim.cmd.wincmd 'p'
+-- 	else
+-- 		vim.cmd('NvimTreeFindFile')
+-- 	end
+-- end
 
 --custom :q function to check buffers then quit
 vim.api.nvim_create_user_command("Q", function()
@@ -63,8 +63,8 @@ map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 -- nvimtree
-map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>o", toggle_nvimtree, { desc = "nvimtree focus window" })
+map("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "neotree toggle window" })
+map("n", "<leader>o", "<cmd>Neotree focus<CR>", { desc = "neotree focus window" })
 
 -- telescope
 map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
