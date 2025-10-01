@@ -33,3 +33,7 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true, notify=false, },
 })
+
+-- load keymaps
+require("config.mappings")
+
