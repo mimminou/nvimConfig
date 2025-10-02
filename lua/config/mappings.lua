@@ -1,38 +1,14 @@
 local map = vim.keymap.set
 
--- function definitions
---toggle nvim tree
--- function toggle_nvimtree()
--- 	if vim.fn.bufname():match 'NvimTree_' then
--- 		vim.cmd.wincmd 'p'
--- 	else
--- 		vim.cmd('NvimTreeFindFile')
--- 	end
--- end
+-- local wk = require "which-key"
 
-
---toggle neotree focus
-function toggle_neotree()
-	if vim.bo.filetype == 'neo-tree' then
-		vim.cmd.wincmd 'p'
-	else
-		vim.cmd("Neotree focus")
-	end
-end
-
---custom :q function to check buffers then quit
-vim.api.nvim_create_user_command("Q", function()
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_get_option(buf, "modified") then
-            print("You have unsaved buffers! if you are sure, use :q! to force close")
-            return
-        end
-    end
-    vim.cmd("qa")
-end, {})
-
--- Make :q call our Q command
-vim.cmd([[cnoreabbrev q Q]])
+-- define which-key groups
+wk.register {
+  ["<leader>u"] = { name = "UI" },
+  ["<leader>l"] = { name = "LSP" },
+  ["<leader>f"] = { name = "Telescope" },
+  ["<leader>g"] = { name = "git" },
+}
 
 ------------------------
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -55,18 +31,21 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
-map({ "n", "x" }, "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "general format file" })
+map(
+  { "n", "x" },
+  "<leader>fm",
+  function() require("conform").format { lsp_fallback = true } end,
+  { desc = "general format file" }
+)
 
 -- global lsp mappings
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 -- bufferline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-map("n", "<C-PageDown>","<cmd>BufferLineCycleNext<CR>" , { desc = "buffer goto next" })
-map("n", "<C-PageUp>","<cmd>BufferLineCyclePrev<CR>" , { desc = "buffer goto previous" })
-map("n", "<leader>c","<cmd>bd<CR>" , { desc = "buffer close" })
+map("n", "<C-PageDown>", "<cmd>BufferLineCycleNext<CR>", { desc = "buffer goto next" })
+map("n", "<C-PageUp>", "<cmd>BufferLineCyclePrev<CR>", { desc = "buffer goto previous" })
+map("n", "<leader>c", "<cmd>bd<CR>", { desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -93,8 +72,8 @@ map(
   { desc = "telescope find all files" }
 )
 
--- themery
-map("n", "<leader>ut", "<cmd>Themery<cr>", { desc = "Themery menu" })
+-- formatting
+map("n", "<leader>uf", toggle_format_on_save, { desc = "toggle formatting on save" })
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
@@ -102,6 +81,9 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
-map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
-end, { desc = "whichkey query lookup" })
+map(
+  "n",
+  "<leader>wk",
+  function() vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ") end,
+  { desc = "whichkey query lookup" }
+)
