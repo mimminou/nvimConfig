@@ -21,6 +21,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+local theme_name = "astrodark" -- <----- theme name
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -29,13 +31,13 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { theme_name } },
   -- automatically check for plugin updates
   checker = { enabled = true, notify=false, },
 })
 
 --load colorscheme
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme(theme_name)
 
 -- load keymaps
 require("config.mappings")

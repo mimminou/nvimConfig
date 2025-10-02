@@ -10,5 +10,8 @@ return {
     end,
   },
   { "folke/tokyonight.nvim" },
+  { "AstroNvim/astrotheme" , opts={
+	  palette = "astrodark",
+  }},
 }
 
