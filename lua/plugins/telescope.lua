@@ -6,11 +6,15 @@ return {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
-    opts={
-        defaults = {
-          layout_config = { vertical = { width = 0.8 } },
+    config = function()
+      require('telescope').setup{
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+          },
         },
-    },
+      }
+    end,
   },
 }
 

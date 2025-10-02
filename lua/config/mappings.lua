@@ -11,7 +11,7 @@ local map = vim.keymap.set
 -- end
 
 
---toggle neotree
+--toggle neotree focus
 function toggle_neotree()
 	if vim.bo.filetype == 'neo-tree' then
 		vim.cmd.wincmd 'p'
@@ -85,7 +85,6 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find o
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
-
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
   "n",
@@ -93,6 +92,9 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "telescope find all files" }
 )
+
+-- themery
+map("n", "<leader>ut", "<cmd>Themery<cr>", { desc = "Themery menu" })
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
