@@ -39,7 +39,14 @@ map(
 )
 
 -- global lsp mappings
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+map("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+map("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Show Line Diagnostics" })
+map("n", "<leader>lR", "<cmd>Lspsaga finder<CR>", { desc = "LSP Finder (refs/defs)" })
+map("n", "<leader>ls", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" })
+map("n", "<leader>lt", "<cmd>Lspsaga peek_type_definition<CR>", { desc = "Peek Type Definition" })
+map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Docs" })
+map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
+map("n", "<leader>rr", "<cmd>Lspsaga rename<CR>", { desc = "Rename symbol" })
 
 -- bufferline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })

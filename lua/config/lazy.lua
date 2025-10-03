@@ -42,3 +42,7 @@ vim.cmd.colorscheme(theme_name)
 -- load stuff (order is important)
 require "config.utils"
 require "config.mappings"
+
+vim.cmd "hi link @parameter Identifier"
+vim.cmd "hi link @import Include"
+vim.cmd "hi link @namespace Identifier"
