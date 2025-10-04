@@ -8,6 +8,7 @@ wk.register {
   ["<leader>l"] = { name = "LSP" },
   ["<leader>f"] = { name = "Telescope" },
   ["<leader>g"] = { name = "git" },
+  ["<leader>t"] = { name = "Toggleterm" },
 }
 
 ------------------------
@@ -79,11 +80,16 @@ map(
   { desc = "telescope find all files" }
 )
 
--- formatting
-map("n", "<leader>uf", toggle_format_on_save, { desc = "toggle formatting on save" })
+-- formatting and ui
+map("n", "<leader>uw", ":set wrap! linebreak!<CR>", { noremap = true, silent = true, desc = "toggle word wrap" })
 
 -- terminal
-map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "ToggleTerm horizontal" })
+map("n", "<leader>th", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "ToggleTerm vertical" })
+map("t", "<C-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true })
+map("t", "<C-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true })
+map("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true })
+map("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
