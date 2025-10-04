@@ -28,9 +28,6 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
-map("n", "<leader>un", "<cmd>set nu!<CR>", { desc = "toggle line number" })
-map("n", "<leader>ur", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
-
 -- global lsp mappings
 map("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 map("n", "<leader>ld", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Show Line Diagnostics" })
@@ -80,6 +77,9 @@ map(
 map("n", "<leader>uw", GFun.toggle_wrap, { desc = "toggle word wrap" })
 map("n", "<leader>uf", GFun.toggle_format_on_save, { desc = "toggle format on save" })
 map("n", "<leader>uj", GReq.snacks.notifier.hide, { desc = "hide notifications" })
+map("n", "<leader>un", "<cmd>set nu!<CR>", { desc = "toggle line number" })
+map("n", "<leader>ur", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
+
 -- terminal
 map("n", "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "ToggleTerm horizontal" })
 map("n", "<leader>th", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "ToggleTerm vertical" })
@@ -90,7 +90,6 @@ map("t", "<C-l>", "<C-\\><C-n><C-w>l", { noremap = true, silent = true })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
-
 map(
   "n",
   "<leader>wk",
