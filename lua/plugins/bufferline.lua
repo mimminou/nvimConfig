@@ -1,8 +1,8 @@
 return {
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
       options = {
         offsets = {
@@ -18,4 +18,3 @@ return {
     },
   },
 }
-

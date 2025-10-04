@@ -1,21 +1,21 @@
 return {
-	  {
-    'tadaa/vimade',
+  {
+    "tadaa/vimade",
     -- default opts (you can partially set these or configure them however you like)
     opts = {
       -- Recipe can be any of 'default', 'minimalist', 'duo', and 'ripple'
       -- Set animate = true to enable animations on any recipe.
       -- See the docs for other config options.
-      recipe = {'default', {animate=false}},
+      recipe = { "default", { animate = false } },
       -- ncmode = 'windows' will fade inactive windows.
       -- ncmode = 'focus' will only fade after you activate the `:VimadeFocus` command.
-      ncmode = 'buffers',
-      fadelevel = 0.7, -- any value between 0 and 1. 0 is hidden and 1 is opaque.
+      ncmode = "buffers",
+      fadelevel = 0.85, -- any value between 0 and 1. 0 is hidden and 1 is opaque.
       -- Changes the real or theoretical background color. basebg can be used to give
       -- transparent terminals accurating dimming.  See the 'Preparing a transparent terminal'
       -- section in the README.md for more info.
       -- basebg = [23,23,23],
-      basebg = '',
+      basebg = "",
       tint = {
         -- bg = {rgb={0,0,0}, intensity=0.3}, -- adds 30% black to background
         -- fg = {rgb={0,0,255}, intensity=0.3}, -- adds 30% blue to foreground
@@ -25,7 +25,7 @@ return {
         -- to create window-specific configurations
         -- see the `Tinting` section of the README for more details.
       },
-      -- prevent a window or buffer from being styled. You 
+      -- prevent a window or buffer from being styled. You
       blocklist = {
         default = {
           highlights = {
@@ -33,24 +33,24 @@ return {
               -- Global statusline, laststatus=3, is currently disabled as multiple windows take
               -- ownership of the StatusLine highlight (see #85).
               if vim.go.laststatus == 3 then
-                  -- you can also return tables (e.g. {'StatusLine', 'StatusLineNC'})
-                  return 'StatusLine'
+                -- you can also return tables (e.g. {'StatusLine', 'StatusLineNC'})
+                return "StatusLine"
               end
             end,
             -- Prevent ActiveTabs from highlighting.
-            'TabLineSel',
-            'Pmenu',
-            'PmenuSel',
-            'PmenuKind',
-            'PmenuKindSel',
-            'PmenuExtra',
-            'PmenuExtraSel',
-            'PmenuSbar',
-            'PmenuThumb',
+            "TabLineSel",
+            "Pmenu",
+            "PmenuSel",
+            "PmenuKind",
+            "PmenuKindSel",
+            "PmenuExtra",
+            "PmenuExtraSel",
+            "PmenuSbar",
+            "PmenuThumb",
             -- Lua patterns are supported, just put the text between / symbols:
             -- '/^StatusLine.*/' -- will match any highlight starting with "StatusLine"
           },
-          buf_opts = { buftype = {'prompt'} },
+          buf_opts = { buftype = { "prompt" } },
           -- buf_name = {'name1','name2', name3'},
           -- buf_vars = { variable = {'match1', 'match2'} },
           -- win_opts = { option = {'match1', 'match2' } },
@@ -58,9 +58,9 @@ return {
           -- win_type = {'name1','name2', name3'},
           -- win_config = { variable = {'match1', 'match2'} },
         },
-        default_block_floats = function (win, active)
-          return win.win_config.relative ~= '' and
-            (win ~= active or win.buf_opts.buftype =='terminal') and true or false
+        default_block_floats = function(win, active)
+          return win.win_config.relative ~= "" and (win ~= active or win.buf_opts.buftype == "terminal") and true
+            or false
         end,
         -- any_rule_name1 = {
         --   buf_opts = {}
@@ -94,71 +94,74 @@ return {
       -- inactive windows. 99% of the time you shouldn't need to change this value.
       nohlcheck = true,
       focus = {
-         providers = {
-            filetypes = {
-              default = {
-                -- If you use mini.indentscope, snacks.indent, or hlchunk, you can also highlight
-                -- using the same indent scope!
-                -- {'snacks', {}},
-                -- {'mini', {}},
-                -- {'hlchunk', {}},
-                {'treesitter', {
-                  min_node_size = 2, 
+        providers = {
+          filetypes = {
+            default = {
+              -- If you use mini.indentscope, snacks.indent, or hlchunk, you can also highlight
+              -- using the same indent scope!
+              -- {'snacks', {}},
+              -- {'mini', {}},
+              -- {'hlchunk', {}},
+              {
+                "treesitter",
+                {
+                  min_node_size = 2,
                   min_size = 1,
                   max_size = 0,
                   -- exclude types either too large and/or mundane
                   exclude = {
-                    'script_file',
-                    'stream',
-                    'document',
-                    'source_file',
-                    'translation_unit',
-                    'chunk',
-                    'module',
-                    'stylesheet',
-                    'statement_block',
-                    'block',
-                    'pair',
-                    'program',
-                    'switch_case',
-                    'catch_clause',
-                    'finally_clause',
-                    'property_signature',
-                    'dictionary',
-                    'assignment',
-                    'expression_statement',
-                    'compound_statement',
-                  }
-                }},
-                -- if treesitter fails or there isn't a good match, fallback to blanks
-                -- (similar to limelight)
-                {'blanks', {
-                  min_size = 1,
-                  max_size = '35%'
-                }},
-                -- if blanks fails to find a good match, fallback to static 35%
-                {'static', {
-                  size = '35%'
-                }},
+                    "script_file",
+                    "stream",
+                    "document",
+                    "source_file",
+                    "translation_unit",
+                    "chunk",
+                    "module",
+                    "stylesheet",
+                    "statement_block",
+                    "block",
+                    "pair",
+                    "program",
+                    "switch_case",
+                    "catch_clause",
+                    "finally_clause",
+                    "property_signature",
+                    "dictionary",
+                    "assignment",
+                    "expression_statement",
+                    "compound_statement",
+                  },
+                },
               },
-              -- You can make custom configurations for any filetype.  Here are some examples.
-              -- markdown ={{'blanks', {min_size=0, max_size='50%'}}, {'static', {max_size='50%'}}}
-              -- javascript = {
-                -- -- only use treesitter (no fallbacks)
-              --   {'treesitter', { min_node_size = 2, include = {'if_statement', ...}}},
-              -- },
-              -- typescript = {
-              --   {'treesitter', { min_node_size = 2, exclude = {'if_statement'}}}, 
-              --   {'static', {size = '35%'}}
-              -- },
-              -- java = {
-                -- -- mini with a fallback to blanks
-                -- {'mini', {min_size = 1, max_size = 20}},
-                -- {'blanks', {min_size = 1, max_size = '100%' }}, 
-              -- },
+              -- if treesitter fails or there isn't a good match, fallback to blanks
+              -- (similar to limelight)
+              { "blanks", {
+                min_size = 1,
+                max_size = "35%",
+              } },
+              -- if blanks fails to find a good match, fallback to static 35%
+              { "static", {
+                size = "35%",
+              } },
             },
-          }
+            -- You can make custom configurations for any filetype.  Here are some examples.
+            -- markdown ={{'blanks', {min_size=0, max_size='50%'}}, {'static', {max_size='50%'}}}
+            -- javascript = {
+            -- -- only use treesitter (no fallbacks)
+            --   {'treesitter', { min_node_size = 2, include = {'if_statement', ...}}},
+            -- },
+            -- typescript = {
+            --   {'treesitter', { min_node_size = 2, exclude = {'if_statement'}}},
+            --   {'static', {size = '35%'}}
+            -- },
+            -- java = {
+            -- -- mini with a fallback to blanks
+            -- {'mini', {min_size = 1, max_size = 20}},
+            -- {'blanks', {min_size = 1, max_size = '100%' }},
+            -- },
+          },
         },
-    }
-  }
+      },
+    },
+  },
 }

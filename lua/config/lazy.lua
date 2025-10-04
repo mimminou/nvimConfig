@@ -40,6 +40,7 @@ require("lazy").setup {
 vim.cmd.colorscheme(theme_name)
 
 -- load stuff (order is important)
+require "config.globals"
 require "config.utils"
 require "config.mappings"
 

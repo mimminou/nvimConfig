@@ -13,6 +13,14 @@ return {
       },
       definition = {
         max_height = 0.5,
+        keys = {
+          quit = "q",
+        },
+      },
+      rename = {
+        keys = {
+          quit = "q",
+      	 },
       },
       ui = {
         border = "rounded",
