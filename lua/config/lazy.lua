@@ -16,8 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-
-
 --load defaults
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.

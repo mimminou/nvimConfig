@@ -5,6 +5,7 @@ vim.opt.softtabstop = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
+vim.opt.wrap = false
 
 -- diagnostics / visual settings
 vim.diagnostic.config({
