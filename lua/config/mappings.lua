@@ -41,6 +41,11 @@ map("n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Docs" })
 map("n", "<leader>la", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
 map("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { desc = "Rename symbol" })
 
+-- git
+map("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
+map("n", "<leader>gb", "<cmd>GitBlameToggle<CR>", { desc = "git blame toggle" })
+map("n", "<leader>gl", GFun.show_git_blame, { desc = "git blame author popup" })
+
 -- bufferline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 map("n", "<C-PageDown>", "<cmd>BufferLineCycleNext<CR>", { desc = "buffer goto next" })
@@ -62,7 +67,6 @@ map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help 
 map("n", "<leader>fm", "<cmd>Telescope marks<CR>", { desc = "telescope find marks" })
 map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find oldfiles" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>fp", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(

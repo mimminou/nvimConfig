@@ -15,13 +15,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+
+
+
+--load defaults
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local theme_name = "astrodark" -- <----- theme name
+local theme_name = "astrodark" -- <----- select theme here
 
 -- Setup lazy.nvim
 require("lazy").setup {
