@@ -1,11 +1,14 @@
 --neovim config
 vim.opt.shiftwidth = 4     -- indentation width
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.softtabstop = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
-vim.opt.wrap = false
+vim.opt.wrap = false --disable wrap by default
+vim.opt.undofile = true  -- enable infinite undo
+vim.opt.number = true        -- absolute line numbers
+vim.opt.relativenumber = true -- relative line numbers
 
 -- diagnostics / visual settings
 vim.diagnostic.config({
@@ -36,11 +39,6 @@ vim.lsp.config("*", {
     }
   },
 })
-
-
--- enable line numbers
-vim.opt.number = true        -- absolute line numbers
-vim.opt.relativenumber = true -- relative line numbers
 
 --load plugins
 require("config.lazy")
