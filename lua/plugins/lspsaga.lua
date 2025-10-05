@@ -8,6 +8,9 @@ return {
   config = function()
     require("lspsaga").setup {
       -- minimal setup, tweak as needed
+      lightbulb = {
+        enable = false,
+      },
       finder = {
         max_height = 0.5, -- 50% of screen
       },
@@ -20,7 +23,7 @@ return {
       rename = {
         keys = {
           quit = "q",
-      	 },
+        },
       },
       ui = {
         border = "rounded",

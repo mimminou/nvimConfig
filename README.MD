@@ -26,3 +26,4 @@ My optimal Neovim config, likely not final but are any dotfiles really final ?
 - [X] git-signs
 - [X] nvim-lspconfig 
 - [X] lsp-saga
+- [X] snipe.nvim
