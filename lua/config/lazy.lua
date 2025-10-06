@@ -23,7 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-local theme_name = "catppuccin" -- <----- select theme here
+local theme_name = "astrodark" -- <----- select theme here
 
 -- Setup lazy.nvim
 require("lazy").setup {
