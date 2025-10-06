@@ -1,15 +1,14 @@
 local map = vim.keymap.set
 
 -- define which-key groups
-GReq.wk.register {
-  ["<leader>u"] = { name = "UI" },
-  ["<leader>l"] = { name = "LSP" },
-  ["<leader>f"] = { name = "Telescope" },
-  ["<leader>g"] = { name = "git" },
-  ["<leader>t"] = { name = "Toggleterm" },
-  ["<leader>w"] = { name = "which-key" },
+GReq.wk.add{
+    { "<leader>f", group = "Telescope" },
+    { "<leader>g", group = "git" },
+    { "<leader>l", group = "LSP" },
+    { "<leader>t", group = "Toggleterm" },
+    { "<leader>u", group = "UI" },
+    { "<leader>w", group = "which-key" },
 }
-
 ------------------------
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
@@ -81,8 +80,8 @@ map("n", "<leader>un", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>ur", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
 -- terminal
-map("n", "<leader>tt", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "ToggleTerm horizontal" })
-map("n", "<leader>th", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "ToggleTerm vertical" })
+map("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>", { desc = "ToggleTerm horizontal" })
+map("n", "<leader>tt", "<cmd>ToggleTerm direction=vertical<CR>", { desc = "ToggleTerm vertical" })
 map("t", "<C-h>", "<C-\\><C-n><C-w>h", { noremap = true, silent = true })
 map("t", "<C-j>", "<C-\\><C-n><C-w>j", { noremap = true, silent = true })
 map("t", "<C-k>", "<C-\\><C-n><C-w>k", { noremap = true, silent = true })
