@@ -29,7 +29,7 @@ return {
       keymap = {
         preset = "default",
         ["<C-space>"] = { function(cmp) cmp.show { providers = { "snippets" } } end },
-        ["<C-enter>"] = { "accept", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
       },
 
       appearance = {
