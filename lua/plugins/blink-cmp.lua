@@ -3,7 +3,7 @@ return {
     "saghen/blink.cmp",
     -- optional: provides snippets for the snippet source
     dependencies = { "rafamadriz/friendly-snippets" },
-
+	enabled=true,
     -- use a release tag to download pre-built binaries
     version = "1.*",
     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -29,7 +29,7 @@ return {
       keymap = {
         preset = "default",
         ["<C-space>"] = { function(cmp) cmp.show { providers = { "snippets" } } end },
-        ["<C-enter>"] = { "accept", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
       },
 
       appearance = {
