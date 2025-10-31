@@ -86,5 +86,7 @@ vim.api.nvim_create_user_command("Q", function()
   vim.cmd "qa"
 end, {})
 
--- Make :q call our Q command
+-- Make :q call Q command
 vim.cmd [[cnoreabbrev q Q]]
+-- fix :Q being called when :q! is called
+vim.cmd([[cnoreabbrev Q! qa!]])
