@@ -9,6 +9,8 @@ vim.opt.wrap = false --disable wrap by default
 vim.opt.undofile = true  -- enable infinite undo
 vim.opt.number = true        -- absolute line numbers
 vim.opt.relativenumber = true -- relative line numbers
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- diagnostics / visual settings
 vim.diagnostic.config({
