@@ -1,6 +1,8 @@
 --disable default status line
 vim.opt.showmode = false
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 0 -- this hides macros, to fix, enable these 2 lines :
+vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
+vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
 
 return {
   {

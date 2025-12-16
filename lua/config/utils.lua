@@ -55,7 +55,7 @@ function GFun.show_git_blame()
 		end
 	end
 
-	vim.keymap.set("n", "q", close_win, { buffer = buf, silent = true })
+	-- vim.keymap.set("n", "q", close_win, { buffer = buf, silent = true })
 	vim.keymap.set("n", "<Esc>", close_win, { buffer = buf, silent = true })
 end
 
