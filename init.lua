@@ -5,6 +5,21 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+-- OSC 52 clipboard: syncs via terminal escape sequence instead of spawning wl-copy/xclip,
+-- which was tripping a pop-shell workspace retile on every yank/delete.
+-- copy-only: paste requires the terminal to answer an OSC 52 query, which GNOME Terminal
+-- doesn't do, and blocks/hangs typing while nvim waits for a reply that never comes.
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = { "wl-paste", "--no-newline" },
+		["*"] = { "wl-paste", "--no-newline", "--primary" },
+	},
+}
 vim.opt.clipboard = "unnamedplus" -- sync with system clipboard
 vim.opt.wrap = false              --disable wrap by default
 vim.opt.undofile = true           -- enable infinite undo
